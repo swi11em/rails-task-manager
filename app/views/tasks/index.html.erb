@@ -1,1 +1,11 @@
-<h1>Test</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li class="list-item"><%= link_to task.title, task_path(task) %>
+      <input type="checkbox" id="scales" name="scales" />
+      <%= link_to task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+      <i class="fa-solid fa-trash" style="color: #00000;"></i>
+     <% end %>
+    </li>
+  <% end %>
+</ul>
